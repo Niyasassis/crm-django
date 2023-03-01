@@ -1,0 +1,46 @@
+{% block content %}
+<div class="row mt-2">
+    <div class="col-md-4">
+        
+        <div class="card card-body" >
+            <h5 class="text-center">Total orders</h5>
+            <hr>
+           
+         <table class="table table-sm">
+            <h4 class="text-center">{{total_orders}}</h4>
+
+        
+        </table>
+       
+        </div>
+
+    </div>
+    <div class="col-md-4">
+     
+        <div class="card card-body" >
+            <h5  class="text-center">Order Delivered</h5>
+           <hr>
+         <table class="table table-sm">
+            <h4 class="text-center">{{delivered}}</h4>
+        
+        </table>
+       
+        </div>
+
+    </div>
+    <div class="col-md-4">
+      
+        <div class="card card-body" >
+            <h5  class="text-center">order pending</h5>
+            <hr>
+            <table class="table table-sm">
+            
+                <h4 class="text-center">{{pending}}</h4>
+
+        </table>
+       
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

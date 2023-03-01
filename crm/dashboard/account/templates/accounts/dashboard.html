@@ -1,0 +1,84 @@
+
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+{% include 'accounts/status.html' %}
+<div class="row mt-3">
+    <div class="col-md-5">
+        <h5>CUSTOMERS:</h5>
+        <hr>
+        <div class="card card-body" >
+            <a class="btn btn-primary btn-sm btn-block" href=" {% url 'createcustomer' %} ">Create Customer</a>
+            <table class="table table-sm">
+                <tr>
+                    
+                    <th>Customer</th>
+                    <th>Phone</th>
+                    <th></th>
+
+                </tr>
+                {% for c in customers  %}
+                <tr>
+                    
+                    <td>
+                        {{c.name}}
+                    </td>
+                    <td>
+                        {{c.phone}}
+                    </td>
+                    <td>
+                       <a class="btn btn-sm bg-info" href="{% url 'customer' c.id %} ">view</a>
+                    </td>
+                    
+                </tr>
+                
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+    <div class="col-md-7">
+        <h5>Last 5 ORDERS</h5>
+        <hr>
+        <div class="card card-body" >
+           
+         {% comment %} <a class="btn btn-primary btn-sm btn-block" href=" {% url 'createorder' %}">Create Order</a> {% endcomment %}
+         <table class="table table-sm">
+            <tr>
+                
+                <th>Products</th>
+                <th>Date Orderd</th>
+                <th>Status</th>
+                <th>Update</th>
+                <th>Remove</th>
+                
+            </tr>
+            {% for o in orders  %}
+            <tr>
+                <td>
+                    {{o.product}}
+                </td>
+                <td>
+                    {{o.date_created}}
+                </td>
+                <td>
+                    {{o.status}}
+                </td>
+                <td>
+                    <a href="{% url 'updateorder' o.id %}"  class="btn btn-sm bg-info">Update</a>
+                </td>
+                <td>
+                    <a href="{% url 'deleteorder' o.id %}" class="btn  btn-sm bg-danger">Delete</a>
+                </td>
+                
+            </tr>
+            
+            {% endfor %}
+
+        </table>
+       
+        </div>
+
+    </div>
+</div>
+{% endblock  %}
